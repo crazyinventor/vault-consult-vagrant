@@ -25,7 +25,6 @@ cp /vagrant/config/consul/supervisor.conf /etc/supervisor/conf.d/consul_server.c
 cp /vagrant/config/vault/supervisor.conf /etc/supervisor/conf.d/vault_server.conf
 
 # Install consul binaries
-
 if [ ! -f /usr/local/bin/consul ]; then
   if [ ! -f /vagrant/tmp/consul ]; then
     cd /vagrant/tmp
@@ -57,7 +56,7 @@ else
 fi
 sed -i -e "s/NODE_IP/$2/g" /etc/consul.d/config.json
 
-# Copy the server configuration.
+# Copy the vault server configuration.
 cp /vagrant/config/vault/vault.hcl /etc/vault/vault.hcl
 sed -i -e "s/NODE_IP/$2/g" /etc/vault/vault.hcl
 
